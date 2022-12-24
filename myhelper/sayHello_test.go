@@ -1,17 +1,13 @@
-package myhelper 
+package myhelper
 
-import "testing"
+import (
+	"testing"
 
-func TestSayHelloWorld(t *testing.T){
-	result := SayHelloWorld("Aku")
-	if result != "Aku Said, Hello World!!"{
-		panic("Result is not Aku Said, Hello World!!")
-	}
-}
+	golang_module "github.com/raihanmd/golang-module/v2"
+)
 
-func TestSayHelloWorldAgus(t *testing.T){
-	result := SayHelloWorld("Agus")
-	if result != "Agus Said, Hello World!!"{
-		panic("Result is not Agus Said, Hello World!!")
+func BenchmarkSayHello(b *testing.B){
+	for i := 0; i < b.N; i++{
+		golang_module.SayHello("Jarem")
 	}
 }
